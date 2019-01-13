@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+    db:
+        image: mariadb:10.3
+        networks:
+            - wordpress
+        volumes:
+            - maria_db:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: somewordpress
+            MYSQL_DATABASE: wordpress
+            MYSQL_USER: wordpress
+            MYSQL_PASSWORD: wordpress
+
+    wordpress:
+        build:
+            context: ./Docker/php/
+        image: antoine-php-mysql
+        networks:
+            - wordpress
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./:/www/
+        working_dir: /www/
+        command: php -S 0.0.0.0:8000 -t ./public/
+        environment:
+            WORDPRESS_DB_HOST: db:3306
+            WORDPRESS_DB_USER: wordpress
+            WORDPRESS_DB_PASSWORD: wordpress
+        depends_on:
+            - db
+
+networks:
+    wordpress:
+
+volumes:
+    maria_db:
