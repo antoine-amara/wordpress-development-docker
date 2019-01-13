@@ -1,0 +1,33 @@
+{
+    "name": "wordpress/website",
+    "description": "a website develop with wordpress cms",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "John Doe",
+            "email": "john.doe@anonymous.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "1.*",
+        "johnpbloch/wordpress": "5.*",
+        "wpackagist-plugin/akismet": "4.*",
+        "wpackagist-theme/twentynineteen": "1.*"
+    },
+    "extra": {
+        "wordpress-install-dir": "public/wp",
+        "installer-paths": {
+            "public/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "public/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "public/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        }
+    }
+}

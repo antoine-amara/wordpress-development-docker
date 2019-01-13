@@ -6,3 +6,7 @@
 /public/.htaccess
 
 local-config.php
+
+### Composer ###
+composer.phar
+/vendor/
