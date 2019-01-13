@@ -1,0 +1,8 @@
+### Wordpress ###
+/public/wp-content/*
+!/public/wp-content/.gitkeep
+/public/wp/*
+!/public/wp/.gitkeep
+/public/.htaccess
+
+local-config.php

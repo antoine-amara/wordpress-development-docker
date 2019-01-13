@@ -1,0 +1,2 @@
+I need to keep wp-content folder only to install the wordpress instance.
+Only this .gitkeep file will be comited and no other files from this folder.
